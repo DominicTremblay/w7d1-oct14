@@ -1,9 +1,6 @@
-import React, { Fragment } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Nav from './Nav';
-import Header from './Header';
-import TweetList from './TweetList';
+import React from 'react';
+import { action } from '@storybook/addon-actions';
+import TweetList from '../TweetList';
 
 const tweets = [
   {
@@ -31,19 +28,10 @@ const tweets = [
   }
 ]
 
+export default {
+  title: 'TweetList',
+  decorators: [storyFn => <div style={{ backgroundColor: 'white' }}>{storyFn()}</div>]
 
-
-function App() {
-
-  return (
-    <Fragment>
-      <Nav />
-      <Header name='Bob' profileImg='/images/profile-hex.png' />
-      <main class="container">
-        <TweetList tweets={tweets} />
-      </main>
-    </Fragment>
-  );
 }
 
-export default App;
+export const listOfTweets = () => <TweetList tweets={tweets} /> 
